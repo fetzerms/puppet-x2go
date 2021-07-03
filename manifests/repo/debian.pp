@@ -12,10 +12,7 @@ class x2go::repo::debian {
     location => 'http://packages.x2go.org/debian',
     release  => $::lsbdistcodename,
     repos    => $release_train,
-    key      => {
-      'id'     => '972FD88FA0BAFB578D0476DFE1F958385BFE2B6E',
-      'server' => 'pgp.mit.edu',
-    },
+    allow_unsigned => true,
     notify   => Exec['apt_update'],
   }
 }
